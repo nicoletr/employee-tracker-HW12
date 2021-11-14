@@ -4,7 +4,7 @@ CREATE DATABASE `company_db`;
 USE `company_db`;
 
 -- Create Department
-CREATE TABLE IF NOT EXISTS `departments`(
+CREATE TABLE IF NOT EXISTS `department`(
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
 
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `departments`(
 );
 
 -- Create Roles
-CREATE TABLE IF NOT EXISTS `roles`(
+CREATE TABLE IF NOT EXISTS `role`(
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
   `salary` DECIMAL NULL DEFAULT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `roles`(
   PRIMARY KEY (`id`),
 
   FOREIGN KEY (`department_id`)
-  REFERENCES `departments`(`id`)
+  REFERENCES `department`(`id`)
   ON DELETE CASCADE
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `employee`(
   PRIMARY KEY (`id`),
 
   FOREIGN KEY (`role_id`)
-  REFERENCES `roles`(`id`)
+  REFERENCES `role`(`id`)
   ON DELETE CASCADE,
 
   FOREIGN KEY (`manager_id`)

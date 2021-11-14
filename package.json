@@ -1,29 +1,25 @@
 {
-  "name": "employee-tracker",
+  "name": "employee-tracker-hw12",
   "version": "1.0.0",
   "description": "An app to track employee details within a database",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
+  "main": "app.js",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicoletr/employee-tracker-HW12.git"
   },
-  "author": "nicoletr",
+  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicoletr/employee-tracker-HW12/issues"
   },
-  "homepage": "https://github.com/nicoletr/employee-tracker-HW12#readme",
-  "dependencies": {
-    "inquirer": "^8.2.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "console.table": "^0.10.0"
-  }
+  "homepage": "https://github.com/nicoletr/employee-tracker-HW12#readme"
 }
