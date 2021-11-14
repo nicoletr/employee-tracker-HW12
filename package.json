@@ -4,8 +4,10 @@
   "description": "An app to track employee details within a database",
   "main": "app.js",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "inquirer": "^8.2.0",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.9.0"
   },
   "devDependencies": {},
   "scripts": {
