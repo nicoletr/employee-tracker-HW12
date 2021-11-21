@@ -1,5 +1,16 @@
-const fs = require('fs');
 const inquirer = require('inquirer');
+const express = require('express');
+const db = require('./db')
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+sequelize.sync().then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
 
 init();
 
@@ -22,6 +33,7 @@ function chooseAction() {
             'View all departments', 
             'Add department',
             // Bonus actions
+            // Update department
             // 'Update employee manager',
             // 'View employees by manager',
             // 'View employees by department',
@@ -35,29 +47,39 @@ function chooseAction() {
     .then ((response) => {
         switch (response.action) {
             case 'View all employees':
-                viewEmployees();
+                readEmployees();
                 break;
             case 'Add employee':
-                addEmployee();
+                createEmployee();
                 break;
             case 'Update employee role':
                 updateEmployee();
                 break;
             case 'View all roles':
-                viewRoles();
+                readRoles();
                 break;
             case 'Add role':
-                addRole();
+                createRole();
                 break;
             case 'View all departments':
-                viewDepartments();
+                readDepartments();
                 break;
             case 'Add department':
-                addDepartment();
+                createDepartment();
                 break;
             case 'Quit':
                 endApp();
                 break;
         }
     })
+}
+
+function readDepartments() {
+    db.viewDepartments()
+    .then(([rows]) => {
+        let dept = rows;
+        console.table("\n")
+        console.table(rows)
+    })
+    .then(()=> chooseAction())
 }
